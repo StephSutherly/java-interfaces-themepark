@@ -16,7 +16,7 @@ public class RollercoasterTest {
     public void setUp() {
         rollerCoaster = new RollerCoaster("Blue Ridge", 10);
         visitorMinor = new Visitor(12, 1.6, 20);
-        visitorMinor = new Visitor(12, 1.6, 20);
+        visitorMinor = new Visitor(12, 1.2, 20);
         visitorMajor = new Visitor(18, 1.7, 5);
     }
 
@@ -35,5 +35,18 @@ public class RollercoasterTest {
         assertEquals(0, rollerCoaster.getVisitCount());
     }
 
+    @Test
+    public void canIdentifyIfPassSecurity___falsex1() {
+        assertEquals(false, RollerCoaster.isAllowedTo(visitor1));
+    }
 
+    @Test
+    public void canIdentifyIfPassSecurity___falsex2() {
+        assertEquals(false, RollerCoaster.isAllowedTo(visitor2));
+    }
+
+    @Test
+    public void canIdentifyIfPassSecurity___true() {
+        assertEquals(true, RollerCoaster.isAllowedTo(visitor3));
+    }
 }
